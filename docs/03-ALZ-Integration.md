@@ -91,25 +91,25 @@ graph TD
         I2 --> P2[Landing Zone A2 Alerts]
     end
     
-    style A fill:#ddd,stroke:#333,stroke-width:2px
-    style B fill:#f9f,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
-    style C fill:#bbf,stroke:#333,stroke-width:2px
-    style D fill:#bbf,stroke:#333,stroke-width:2px
-    style E fill:#bbf,stroke:#333,stroke-width:2px
-    style F fill:#bbf,stroke:#333,stroke-width:2px
-    style G fill:#bbf,stroke:#333,stroke-width:2px
-    style H fill:#bbf,stroke:#333,stroke-width:2px
-    style I fill:#bbf,stroke:#333,stroke-width:2px
-    style L fill:#bbf,stroke:#333,stroke-width:2px
-    style J fill:#bbf,stroke:#333,stroke-width:2px
-    style K fill:#bbf,stroke:#333,stroke-width:2px
-    style E1 fill:#96f,stroke:#333,stroke-width:2px
-    style F1 fill:#96f,stroke:#333,stroke-width:2px
-    style G1 fill:#96f,stroke:#333,stroke-width:2px
-    style I1 fill:#96f,stroke:#333,stroke-width:2px
-    style I2 fill:#96f,stroke:#333,stroke-width:2px
-    style J1 fill:#96f,stroke:#333,stroke-width:2px
-    style K1 fill:#96f,stroke:#333,stroke-width:2px
+    style A fill:#ddd,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#f9f,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5,color:#000
+    style C fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style I fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style L fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style J fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style K fill:#bbf,stroke:#333,stroke-width:2px,color:#000
+    style E1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style F1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style G1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style I1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style I2 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style J1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
+    style K1 fill:#96f,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Key Implementation Notes
@@ -154,8 +154,8 @@ graph LR
     B --> D[Action Groups]
     B --> E[Metric Settings]
     
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#bbf,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Subscription Organization
@@ -174,9 +174,17 @@ graph TD
     D --> J[Resource Alerts]
     F --> K[Shared Resource Alerts]
     
-    style A fill:#f96,stroke:#333,stroke-width:2px
-    style C fill:#9f6,stroke:#333,stroke-width:2px
-    style E fill:#69f,stroke:#333,stroke-width:2px
+    style A fill:#f96,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#9f6,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#69f,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style I fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style J fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style K fill:#fff,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ### Resource Coverage
@@ -232,7 +240,15 @@ graph LR
     C --> H[Queries]
     D --> I[Application Monitoring]
     
-    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style A fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style D fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style E fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style F fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style G fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style H fill:#fff,stroke:#333,stroke-width:2px,color:#000
+    style I fill:#fff,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ## Best Practices
@@ -269,9 +285,9 @@ graph LR
     C --> I[Resource Monitoring]
     end
     
-    style A fill:#f96,stroke:#333,stroke-width:2px
-    style B fill:#9f6,stroke:#333,stroke-width:2px
-    style C fill:#69f,stroke:#333,stroke-width:2px
+    style A fill:#f96,stroke:#333,stroke-width:2px,color:#000
+    style B fill:#9f6,stroke:#333,stroke-width:2px,color:#000
+    style C fill:#69f,stroke:#333,stroke-width:2px,color:#000
 ```
 
 ## Next Steps
