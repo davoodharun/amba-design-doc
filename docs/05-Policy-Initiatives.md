@@ -7,9 +7,9 @@ AMBA's policy initiatives form the foundation of its monitoring strategy, provid
 | Category | Description | Key Components | Reference Documentation |
 |----------|-------------|----------------|------------------------|
 | Core Infrastructure | Base monitoring for infrastructure components | - Connectivity monitoring<br>- Management services<br>- Resource health | [Azure Monitor infrastructure monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-infrastructure) |
-| Security and Identity | Security-focused monitoring initiatives | - Identity services<br>- Key management<br>- Security operations | [Azure security monitoring](https://learn.microsoft.com/en-us/azure/security/fundamentals/infrastructure-monitoring) |
-| Application Services | Application and service monitoring | - Load balancing<br>- Web services<br>- API management | [Azure application monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-monitoring-overview) |
-| Virtual Machine | VM-specific monitoring initiatives | - Performance metrics<br>- Health status<br>- Configuration changes | [Azure VM monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine) |
+| Security and Identity | Security-focused monitoring initiatives | - Identity services<br>- Key management<br>- Security operations | [Azure security monitoring](https://learn.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-logging-threat-detection) |
+| Application Services | Application and service monitoring | - Load balancing<br>- Web services<br>- API management | [Azure application monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/app/monitor-web-app-availability) |
+| Virtual Machine | VM-specific monitoring initiatives | - Performance metrics<br>- Health status<br>- Configuration changes | [Azure VM monitoring](https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machines) |
 
 ## Core Infrastructure Initiatives
 
@@ -19,9 +19,9 @@ AMBA's policy initiatives form the foundation of its monitoring strategy, provid
 
 | Component | Metrics Monitored | Alert Types | Example Policy |
 |-----------|------------------|--------------|----------------|
-| Network Interfaces | - Bandwidth utilization<br>- Packet loss<br>- Latency | - Threshold-based<br>- Dynamic | [Network metrics alert policy](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/Network/microsoft.network.networkinterfaces.json) |
-| Virtual Networks | - Connection status<br>- Throughput<br>- Gateway health | - Health-based<br>- Metric-based | [VNet monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/Network/microsoft.network.virtualnetworks.json) |
-| Network Security | - NSG changes<br>- Flow logs<br>- Security events | - Change-based<br>- Security alerts | [NSG flow logs policy](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/Network/microsoft.network.networksecuritygroups.json) |
+| Network Interfaces | - Bandwidth utilization<br>- Packet loss<br>- Latency | - Threshold-based<br>- Dynamic | [Network metrics alert policy](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.Network/networkInterfaces) |
+| Virtual Networks | - Connection status<br>- Throughput<br>- Gateway health | - Health-based<br>- Metric-based | [VNet monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.Network/virtualNetworks) |
+| Network Security | - NSG changes<br>- Flow logs<br>- Security events | - Change-based<br>- Security alerts | [NSG flow logs policy](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.Network/networkSecurityGroups) |
 
 **Example Alert Rule**:
 ```json
@@ -56,9 +56,9 @@ AMBA's policy initiatives form the foundation of its monitoring strategy, provid
 
 | Component | Metrics Monitored | Alert Types | Example Policy |
 |-----------|------------------|--------------|----------------|
-| Automation | - Runbook status<br>- Job execution<br>- Resource usage | - Status-based<br>- Performance | [Automation account monitoring](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/Automation/microsoft.automation.automationaccounts.json) |
-| Backup Services | - Backup status<br>- Recovery points<br>- Storage usage | - Health-based<br>- Capacity | [Backup monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/Backup/microsoft.recoveryservices.vaults.json) |
-| Management APIs | - Response times<br>- Request rates<br>- Error rates | - Performance<br>- Availability | [API monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/blob/main/patterns/alz/policies/API/microsoft.apimanagement.service.json) |
+| Automation | - Runbook status<br>- Job execution<br>- Resource usage | - Status-based<br>- Performance | [Automation account monitoring](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.Automation/automationAccounts) |
+| Backup Services | - Backup status<br>- Recovery points<br>- Storage usage | - Health-based<br>- Capacity | [Backup monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.RecoveryServices/vaults) |
+| Management APIs | - Response times<br>- Request rates<br>- Error rates | - Performance<br>- Availability | [API monitoring policy](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns/core/Microsoft.ApiManagement/service) |
 
 ## Security and Identity Initiatives
 
@@ -143,37 +143,37 @@ AMBA's policy initiatives form the foundation of its monitoring strategy, provid
    - Define monitoring requirements
    - Plan initiative deployment order
    
-   **Template**: [Implementation planning worksheet](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/monitor/platform-tooling-implementation)
+   **Template**: [Implementation planning guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/monitor/platform-tooling-implementation-guide)
 
 2. **Deployment**
    - Apply core initiatives
    - Configure alert routing
    - Validate monitoring coverage
    
-   **Guide**: [Policy deployment guide](https://learn.microsoft.com/en-us/azure/governance/policy/assign-policy-portal)
+   **Guide**: [Policy deployment guide](https://learn.microsoft.com/en-us/azure/governance/policy/assign-policy-azure-portal)
 
 3. **Maintenance**
    - Review alert effectiveness
    - Adjust thresholds as needed
    - Update documentation
    
-   **Reference**: [Azure Monitor maintenance guide](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-maintenance)
+   **Reference**: [Azure Monitor maintenance guide](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
 
 ## Additional Resources
 
 ### Official Documentation
-- [Azure Policy Documentation](https://learn.microsoft.com/en-us/azure/governance/policy/)
-- [Azure Monitor Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/)
-- [Azure Security Center Documentation](https://learn.microsoft.com/en-us/azure/security-center/)
+- [Azure Policy Documentation](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
+- [Azure Monitor Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Microsoft Defender for Cloud Documentation](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction)
 
 ### Community Resources
 - [Azure Monitor Community on GitHub](https://github.com/microsoft/AzureMonitorCommunity)
-- [Azure Policy Samples](https://github.com/Azure/azure-policy)
-- [Azure Monitor Baseline Alerts Repository](https://github.com/Azure/azure-monitor-baseline-alerts)
+- [Azure Policy Samples](https://github.com/Azure/azure-policy/tree/master/samples)
+- [Azure Monitor Baseline Alerts Repository](https://github.com/Azure/azure-monitor-baseline-alerts/tree/main/patterns)
 
 ### Tools and Templates
 - [Azure Policy VSCode Extension](https://marketplace.visualstudio.com/items?itemName=AzurePolicy.azurepolicyextension)
-- [Azure Monitor Workbook Templates](https://github.com/microsoft/AzureMonitorCommunity/tree/master/Workbooks)
+- [Azure Monitor Workbook Templates](https://github.com/microsoft/AzureMonitorCommunity/tree/main/Workbooks)
 - [Azure Monitor PowerShell Module](https://learn.microsoft.com/en-us/powershell/module/az.monitor/)
 
 ## Next Steps

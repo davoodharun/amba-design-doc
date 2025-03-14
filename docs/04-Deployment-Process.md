@@ -1,10 +1,10 @@
 # Deployment Process
 
-The deployment of AMBA in your Azure environment is a structured process that ensures consistent and effective monitoring coverage. This section guides you through the deployment journey, from initial preparation to final validation and cleanup. For a comprehensive overview of Azure Monitor deployment concepts, see the [Azure Monitor deployment best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan).
+The deployment of AMBA in your Azure environment is a structured process that ensures consistent and effective monitoring coverage. This section guides you through the deployment journey, from initial preparation to final validation and cleanup. For a comprehensive overview of Azure Monitor deployment concepts, see the [Azure Monitor deployment best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices).
 
 ## Getting Started
 
-Before beginning the deployment process, it's essential to understand your environment's current state and requirements. This understanding forms the foundation for a successful AMBA implementation. Start by assessing your existing monitoring setup, identifying gaps in coverage, and documenting your monitoring requirements. For guidance on monitoring strategy, refer to [Azure Monitor planning documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan).
+Before beginning the deployment process, it's essential to understand your environment's current state and requirements. This understanding forms the foundation for a successful AMBA implementation. Start by assessing your existing monitoring setup, identifying gaps in coverage, and documenting your monitoring requirements. For guidance on monitoring strategy, refer to [Azure Monitor planning documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices).
 
 ### Environment Assessment Example
 
@@ -49,11 +49,11 @@ cd azure-monitor-baseline-alerts
 
 ## Essential Prerequisites
 
-Before deploying AMBA, ensure your environment meets the necessary prerequisites. For a complete list of prerequisites, see [Azure Monitor prerequisites documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-requirements-overview).
+Before deploying AMBA, ensure your environment meets the necessary prerequisites. For a complete list of prerequisites, see [Azure Monitor prerequisites documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-prerequisites).
 
 ### Resource Provider Registration
 
-Register these required resource providers using Azure CLI. For more information about resource providers, see [Azure resource providers documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+Register these required resource providers using Azure CLI. For more information about resource providers, see [Azure resource providers documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider).
 
 ```bash
 # Register required resource providers
@@ -69,7 +69,7 @@ az provider show -n Microsoft.OperationalInsights -o table
 
 ### Permission Requirements
 
-Ensure you have these minimum permissions. For detailed RBAC information, see [Azure RBAC documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview):
+Ensure you have these minimum permissions. For detailed RBAC information, see [Azure RBAC documentation](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles):
 
 Example role assignment using Azure CLI:
 
@@ -82,7 +82,7 @@ az role assignment create --assignee "user@example.com" \
 
 ## Choosing Your Deployment Path
 
-AMBA supports multiple deployment methods. For detailed deployment options, see [Azure deployment options documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes).
+AMBA supports multiple deployment methods. For detailed deployment options, see [Azure deployment options documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-tutorial-local-template).
 
 ### Portal Deployment (Recommended for Small Environments)
 ```plaintext
@@ -253,7 +253,7 @@ Here's an example of the monitoring parameters file (`amba-monitoring-params.jso
 
 ## Understanding Resource Creation
 
-During deployment, AMBA creates these key resources. For detailed resource specifications, see [Azure resource types documentation](https://learn.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups).
+When deploying AMBA, various Azure resources are created. For detailed information about Azure resource types, see [Azure resource types documentation](https://learn.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups).
 
 ### Log Analytics Workspace
 For workspace configuration details, see [Log Analytics workspace documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview).
@@ -301,25 +301,9 @@ Example alert rule configuration:
 }
 ```
 
-## Making It Your Own
+## Environment-Specific Settings
 
-### Alert Threshold Customization
-For detailed information about alert customization, see [Azure Monitor alert customization documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-metric-overview).
-
-Example of customizing thresholds using tags:
-
-```plaintext
-Resource Tag Format:
-Key: _amba-{metricName}-threshold-override_
-Value: {threshold_value}
-
-Example:
-Key: _amba-UtilizationPercentage-threshold-override_
-Value: 95
-```
-
-### Environment-Specific Settings
-For environment configuration best practices, see [Azure environment configuration documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
+AMBA supports environment-specific configurations. For best practices on environment configuration, see [Environment configuration guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
 
 Example of environment-specific configurations:
 
@@ -341,7 +325,7 @@ Example of environment-specific configurations:
 ## Deployment Journey
 
 ### Phase 1: Preparation
-For deployment planning guidance, see [Azure deployment planning documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
+For detailed deployment planning guidance, see [Planning guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
 
 Example preparation checklist:
 ```plaintext
@@ -354,7 +338,7 @@ Example preparation checklist:
 ```
 
 ### Phase 2: Execution
-For deployment execution best practices, see [Azure deployment execution documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/implementation-guidelines).
+For deployment execution best practices, see [Implementation guidelines](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/implementation-guidelines).
 
 Example deployment sequence:
 ```plaintext
@@ -368,7 +352,7 @@ Example deployment sequence:
 ```
 
 ### Phase 3: Validation
-For deployment validation guidance, see [Azure deployment validation documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history).
+For deployment validation guidance, see [Deployment validation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history).
 
 Example validation tests:
 ```plaintext
@@ -383,7 +367,7 @@ Example validation tests:
 ## Maintaining Your Deployment
 
 ### Regular Maintenance Tasks
-For maintenance best practices, see [Azure maintenance documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/operate/azure-server-management/server-maintenance).
+For maintenance best practices, see [Azure maintenance guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/operate/azure-server-management/server-maintenance).
 
 Example maintenance schedule:
 ```plaintext
@@ -405,7 +389,7 @@ Monthly:
 
 ## Deployment Cleanup
 
-For detailed cleanup procedures, see [Azure resource cleanup documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group).
+For detailed cleanup procedures, see [Resource cleanup guide](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group).
 
 ### Identifying Resources to Clean
 Before cleanup, identify AMBA-related resources:
@@ -486,7 +470,7 @@ Ready to implement AMBA in your environment? Continue to our [Policy Initiatives
 - [Azure PowerShell Reference](https://learn.microsoft.com/en-us/powershell/azure/)
 
 ### Best Practices and Guidelines
-- [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan)
+- [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
 - [Azure Resource Naming Conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 - [Azure Tagging Strategies](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 - [Azure RBAC Best Practices](https://learn.microsoft.com/en-us/azure/role-based-access-control/best-practices)

@@ -2,7 +2,7 @@
 
 AMBA's integration with Azure Landing Zone (ALZ) environments provides a robust foundation for standardized monitoring across your Azure estate. This section explores how AMBA enhances ALZ's monitoring capabilities and helps maintain consistent monitoring practices across your landing zone architecture.
 
-For a comprehensive overview of Azure Landing Zones, see the [official ALZ documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/).
+For a comprehensive overview of Azure Landing Zones, see the [official ALZ documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/design-principles).
 
 ## Understanding ALZ Integration
 
@@ -145,7 +145,7 @@ graph TD
 
 ### Management Group Alignment
 
-AMBA's policy initiatives are designed to align with [ALZ's management group hierarchy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-group-hierarchy), ensuring that monitoring configurations are applied at the appropriate levels.
+AMBA's policy initiatives are designed to align with [ALZ's management group hierarchy](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-management-groups), ensuring that monitoring configurations are applied at the appropriate levels.
 
 ```mermaid
 graph LR
@@ -160,7 +160,7 @@ graph LR
 
 ### Subscription Organization
 
-AMBA's monitoring configurations work seamlessly with [ALZ's subscription organization model](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-democratization). The framework applies monitoring based on subscription roles:
+AMBA's monitoring configurations work seamlessly with [ALZ's subscription organization model](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions). The framework applies monitoring based on subscription roles:
 
 ```mermaid
 graph TD
@@ -192,15 +192,15 @@ graph TD
 AMBA provides specialized monitoring for common ALZ resources:
 
 - [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview)
-- [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/overview)
-- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/overview)
+- [Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview)
+- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts)
 - [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview)
 
 ## Implementation Considerations
 
 ### Environment-Specific Configuration
 
-AMBA supports environment-specific monitoring through [Azure Policy parameters](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/parameters):
+AMBA supports environment-specific monitoring through [Azure Policy parameters](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameters):
 
 ```json
 {
@@ -226,7 +226,7 @@ AMBA supports environment-specific monitoring through [Azure Policy parameters](
 AMBA integrates with key Azure services:
 
 - [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
-- [Log Analytics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
+- [Log Analytics](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview)
 - [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 
 ```mermaid
@@ -257,9 +257,9 @@ graph LR
 
 When implementing AMBA in an ALZ environment, follow these best practices:
 
-1. Align with [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/)
-2. Follow [Azure Monitor best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan)
-3. Implement [secure baseline policies](https://learn.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-monitoring)
+1. Align with [Azure Well-Architected Framework](https://learn.microsoft.com/en-us/azure/well-architected/landing-page/index)
+2. Follow [Azure Monitor best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
+3. Implement [secure baseline policies](https://learn.microsoft.com/en-us/security/benchmark/azure/security-controls-v3-logging-threat-detection)
 
 ### Implementation Approach
 
@@ -295,8 +295,8 @@ graph LR
 Ready to deploy AMBA in your ALZ environment? Continue to our [Deployment Process](04-Deployment-Process.md) section to learn about the step-by-step implementation process.
 
 For more information about Azure Landing Zones, visit:
-- [ALZ Overview](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/)
-- [ALZ Architecture](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/landing-zone-architecture)
-- [ALZ Design Principles](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-principles)
+- [ALZ Overview](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/design-principles)
+- [ALZ Architecture](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/design-areas-overview)
+- [ALZ Design Principles](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/design-principles)
 
 [Back to Main Document](../README.md) | [Previous: Technical Strategy](02-Technical-Strategy.md) | [Next: Deployment Process](04-Deployment-Process.md) 
