@@ -6,22 +6,22 @@ Welcome to Azure Monitor Baseline Alerts (AMBA). This guide will walk you throug
 
 Before implementing AMBA, ensure your environment meets these requirements:
 
-1. **Azure Subscription Access**
+1. **Azure Subscription Access** (see [Security and Compliance > Access Control](08-Security-Compliance.md#access-control-the-first-line-of-defense))
    - Appropriate permissions to create and manage resources
    - Rights to assign and manage Azure policies
    - Access to create and modify Azure Monitor resources
 
-2. **Required Resource Providers**
+2. **Required Resource Providers** (see [Deployment Process > Resource Provider Registration](04-Deployment-Process.md#resource-provider-registration))
    - Microsoft.Insights
    - Microsoft.AlertsManagement
    - Microsoft.OperationalInsights
 
-3. **Supporting Azure Services**
+3. **Supporting Azure Services** (see [Technical Strategy > Integration Patterns](02-Technical-Strategy.md#integration-patterns))
    - Azure Monitor enabled
    - Log Analytics workspace
    - Action Groups for notifications (optional)
 
-4. **Command Line Tools**
+4. **Command Line Tools** (see [Deployment Process > Azure CLI Deployment](04-Deployment-Process.md#azure-cli-deployment-recommended-for-automation) and [PowerShell Deployment](04-Deployment-Process.md#powershell-deployment-alternative-automation))
    - Azure CLI (version 2.40.0 or later)
      - [Install Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
      - Run `az --version` to verify installation
@@ -29,10 +29,19 @@ Before implementing AMBA, ensure your environment meets these requirements:
      - [Install Azure PowerShell](https://learn.microsoft.com/en-us/powershell/azure/install-azure-powershell)
      - Run `Get-Module -Name Az -ListAvailable` to verify installation
 
-5. **Source Control**
+5. **Source Control** (see [Deployment Process > AMBA Repository](04-Deployment-Process.md#amba-repository))
    - Git for cloning the AMBA repository
      - [Install Git](https://git-scm.com/downloads)
      - Run `git --version` to verify installation
+
+6. **Management Group Hierarchy** (see [ALZ Integration > Management Group Structure](03-ALZ-Integration.md#management-group-structure) and [Policy Initiatives > Policy Assignment](05-Policy-Initiatives.md#policy-assignment))
+   - Pseudo-root Management Group
+     - Used for policy assignment and service health monitoring
+     - All child management groups inherit policies
+   - Management Group structure aligned with ALZ best practices
+     - Platform Management Group for shared services
+     - Landing Zones Management Group for workloads
+     - Sandbox Management Group for testing
 
 ## Essential Documentation Links
 
@@ -40,13 +49,13 @@ Before proceeding with deployment, review these essential resources:
 
 1. **AMBA Resources**
    - [AMBA GitHub Repository](https://github.com/Azure/azure-monitor-baseline-alerts)
-   - [AMBA Documentation Site](https://azure.github.io/azure-monitor-baseline-alerts/welcome/)
-   - [AMBA ALZ Pattern Guide](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/)
+   - [AMBA Documentation Site](https://azure.github.io/azure-monitor-baseline-alerts)
+   - [AMBA ALZ Pattern Guide](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/Overview/ALZ-Pattern/)
 
 2. **Azure Monitor Documentation**
    - [Azure Monitor Overview](https://learn.microsoft.com/en-us/azure/azure-monitor/overview)
    - [Alert Management](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview)
-   - [Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview)
+   - [Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs)
 
 3. **Azure Policy Resources**
    - [Azure Policy Overview](https://learn.microsoft.com/en-us/azure/governance/policy/overview)
@@ -59,7 +68,7 @@ Before proceeding with deployment, review these essential resources:
    - [Management Groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview)
 
 5. **Best Practices**
-   - [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
+   - [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan)
    - [Naming Conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
    - [Resource Tagging](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 
@@ -85,18 +94,18 @@ Before deployment, conduct these key assessments:
 4. **ALZ Integration Assessment**
    - Map current management group hierarchy
      - Document existing management group structure
-     - Identify landing zones and their purposes ([ALZ Landing Zone Design Guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas))
-     - Review subscription organization ([ALZ Subscription Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions))
+     - Identify landing zones and their purposes ([ALZ Landing Zone Design Guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/))
+     - Review subscription organization ([ALZ Subscription Organization](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-democratization))
    - Evaluate policy inheritance
      - Document existing policy assignments ([Policy Implementation Guide](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure))
      - Identify potential conflicts with AMBA policies ([AMBA Policy Reference](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/initiatives/))
      - Plan policy scope and exclusions ([Policy Scope Guide](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/scope))
    - Assess monitoring requirements by landing zone
-     - Determine monitoring needs for each landing zone type ([ALZ Monitoring Guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-monitoring))
-     - Identify zone-specific alert thresholds ([AMBA Alert Customization](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/HowTo/customize/))
+     - Determine monitoring needs for each landing zone type ([ALZ Monitoring Guide](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management))
+     - Identify zone-specific alert thresholds ([AMBA Alert Customization](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/customize/))
      - Plan alert routing per landing zone ([Action Groups Guide](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups))
    - Review organizational alignment
-     - Map business units to landing zones ([ALZ Reference Architecture](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/architecture))
+     - Map business units to landing zones ([ALZ Reference Architecture](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/landing-zone-architecture))
      - Document compliance requirements per zone ([Azure Compliance Documentation](https://learn.microsoft.com/en-us/azure/compliance/))
      - Identify cross-zone dependencies ([ALZ Network Topology](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity))
 
@@ -110,7 +119,7 @@ Before deployment, conduct these key assessments:
      - Plan monitoring roles per landing zone ([Azure Monitor RBAC](https://learn.microsoft.com/en-us/azure/azure-monitor/roles-permissions-security))
      - Define alert access requirements ([Alert Role Permissions](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-manage-access))
    - Monitoring customization
-     - Document zone-specific monitoring requirements ([AMBA Customization Guide](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/HowTo/customize/))
+     - Document zone-specific monitoring requirements ([AMBA Customization Guide](https://azure.github.io/azure-monitor-baseline-alerts/patterns/alz/customize/))
      - Plan custom threshold values ([Metric Alert Configuration](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-metric-overview))
      - Define zone-specific alert suppression rules ([Alert Processing Rules](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-processing-rules))
    - Integration points
@@ -132,8 +141,8 @@ AMBA offers multiple deployment methods to suit your needs. For comprehensive de
 - See: [Portal Deployment in Detail](04-Deployment-Process.md#portal-deployment-recommended-for-small-environments)
 - Documentation: 
   - [Portal Deployment Guide](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-new-alert-rule)
-  - [Azure Monitor Prerequisites](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-manager-samples)
-  - [Deployment Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
+  - [Azure Monitor Prerequisites](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-requirements-overview)
+  - [Deployment Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan)
 
 ### 2. Infrastructure as Code
 - Best for: Enterprise deployments, automation
@@ -279,4 +288,4 @@ Once you've completed the initial setup:
 
 For detailed architectural information and design principles, proceed to the [Technical Strategy](02-Technical-Strategy.md) section.
 
-[Back to Main Document](../AMBA%20Design%20Document.md) | [Next: Technical Strategy](02-Technical-Strategy.md) 
+[Back to Main Document](../README.md) | [Next: Technical Strategy](02-Technical-Strategy.md) 

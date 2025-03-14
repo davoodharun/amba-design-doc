@@ -1,6 +1,6 @@
 # Deployment Process
 
-The deployment of AMBA in your Azure environment is a structured process that ensures consistent and effective monitoring coverage. This section guides you through the deployment journey, from initial preparation to final validation and cleanup. For a comprehensive overview of Azure Monitor deployment concepts, see the [Azure Monitor deployment best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices).
+The deployment of AMBA in your Azure environment is a structured process that ensures consistent and effective monitoring coverage. This section guides you through the deployment journey, from initial preparation to final validation and cleanup. For a comprehensive overview of Azure Monitor deployment concepts, see the [Azure Monitor deployment best practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan).
 
 ## Getting Started
 
@@ -49,7 +49,7 @@ cd azure-monitor-baseline-alerts
 
 ## Essential Prerequisites
 
-Before deploying AMBA, ensure your environment meets the necessary prerequisites. For a complete list of prerequisites, see [Azure Monitor prerequisites documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/resource-manager-samples).
+Before deploying AMBA, ensure your environment meets the necessary prerequisites. For a complete list of prerequisites, see [Azure Monitor prerequisites documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/monitor-requirements-overview).
 
 ### Resource Provider Registration
 
@@ -82,7 +82,7 @@ az role assignment create --assignee "user@example.com" \
 
 ## Choosing Your Deployment Path
 
-AMBA supports multiple deployment methods. For detailed deployment options, see [Azure deployment options documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/deployment-approaches).
+AMBA supports multiple deployment methods. For detailed deployment options, see [Azure deployment options documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes).
 
 ### Portal Deployment (Recommended for Small Environments)
 ```plaintext
@@ -253,7 +253,7 @@ Here's an example of the monitoring parameters file (`amba-monitoring-params.jso
 
 ## Understanding Resource Creation
 
-During deployment, AMBA creates these key resources. For detailed resource specifications, see [Azure resource types documentation](https://learn.microsoft.com/en-us/azure/templates/).
+During deployment, AMBA creates these key resources. For detailed resource specifications, see [Azure resource types documentation](https://learn.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups).
 
 ### Log Analytics Workspace
 For workspace configuration details, see [Log Analytics workspace documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview).
@@ -319,7 +319,7 @@ Value: 95
 ```
 
 ### Environment-Specific Settings
-For environment configuration best practices, see [Azure environment configuration documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/considerations/development-strategy).
+For environment configuration best practices, see [Azure environment configuration documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
 
 Example of environment-specific configurations:
 
@@ -341,7 +341,7 @@ Example of environment-specific configurations:
 ## Deployment Journey
 
 ### Phase 1: Preparation
-For deployment planning guidance, see [Azure deployment planning documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/initial-subscriptions).
+For deployment planning guidance, see [Azure deployment planning documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management).
 
 Example preparation checklist:
 ```plaintext
@@ -354,7 +354,7 @@ Example preparation checklist:
 ```
 
 ### Phase 2: Execution
-For deployment execution best practices, see [Azure deployment execution documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/deployment-guidelines).
+For deployment execution best practices, see [Azure deployment execution documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/implementation-guidelines).
 
 Example deployment sequence:
 ```plaintext
@@ -368,7 +368,7 @@ Example deployment sequence:
 ```
 
 ### Phase 3: Validation
-For deployment validation guidance, see [Azure deployment validation documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-modes).
+For deployment validation guidance, see [Azure deployment validation documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deployment-history).
 
 Example validation tests:
 ```plaintext
@@ -383,7 +383,7 @@ Example validation tests:
 ## Maintaining Your Deployment
 
 ### Regular Maintenance Tasks
-For maintenance best practices, see [Azure maintenance documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/operate/best-practices).
+For maintenance best practices, see [Azure maintenance documentation](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/operate/azure-server-management/server-maintenance).
 
 Example maintenance schedule:
 ```plaintext
@@ -405,7 +405,7 @@ Monthly:
 
 ## Deployment Cleanup
 
-For detailed cleanup procedures, see [Azure resource cleanup documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resources).
+For detailed cleanup procedures, see [Azure resource cleanup documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/delete-resource-group).
 
 ### Identifying Resources to Clean
 Before cleanup, identify AMBA-related resources:
@@ -486,7 +486,7 @@ Ready to implement AMBA in your environment? Continue to our [Policy Initiatives
 - [Azure PowerShell Reference](https://learn.microsoft.com/en-us/powershell/azure/)
 
 ### Best Practices and Guidelines
-- [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices)
+- [Azure Monitor Best Practices](https://learn.microsoft.com/en-us/azure/azure-monitor/best-practices-plan)
 - [Azure Resource Naming Conventions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
 - [Azure Tagging Strategies](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 - [Azure RBAC Best Practices](https://learn.microsoft.com/en-us/azure/role-based-access-control/best-practices)
@@ -498,7 +498,7 @@ Ready to implement AMBA in your environment? Continue to our [Policy Initiatives
 - [Azure QuickStart Templates](https://github.com/Azure/azure-quickstart-templates)
 
 ### Related Services
-- [Azure Resource Manager Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/)
+- [Azure Resource Manager Documentation](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview)
 - [Azure Action Groups Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups)
 - [Azure Workbooks Documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview)
 
@@ -507,4 +507,4 @@ Ready to implement AMBA in your environment? Continue to our [Policy Initiatives
 - [Azure Monitor Blog](https://techcommunity.microsoft.com/t5/azure-monitor-blog/bg-p/AzureMonitorBlog)
 - [Azure Monitor Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor)
 
-[Back to Main Document](../AMBA%20Design%20Document.md) | [Previous: ALZ Integration](03-ALZ-Integration.md) | [Next: Policy Initiatives](05-Policy-Initiatives.md) 
+[Back to Main Document](../README.md) | [Previous: ALZ Integration](03-ALZ-Integration.md) | [Next: Policy Initiatives](05-Policy-Initiatives.md) 
